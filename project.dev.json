@@ -1,0 +1,6 @@
+{
+  "profile": "lambda-test",
+  "name": "lambda-test",
+  "description": "Various tests for aws lambda",
+  "role" : "arn:aws:iam::<FIXME>:role/service-role/lambda-test"
+}
