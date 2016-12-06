@@ -1,0 +1,73 @@
+group 'com.lambda.test'
+version '1.0-SNAPSHOT'
+
+
+buildscript {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+    }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
+sourceCompatibility = 1.8
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'com.amazonaws', name: 'aws-lambda-java-core', version: '1.1.0'
+    compile group: 'com.amazonaws', name: 'aws-lambda-java-log4j', version: '1.0.0'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+shadowJar {
+    //baseName = 'apex'
+    baseName = project.rootProject.name
+    classifier = null
+    artifacts {
+        shadow(tasks.shadowJar.archivePath) {
+            builtBy shadowJar
+        }
+    }
+}
+
+
+publishing {
+    publications {
+        shadow(MavenPublication) {
+            from components.shadow
+            artifactId = project.rootProject.name
+
+        }
+    }
+}
+
+/*
+artifactoryPublish {
+    skip = false
+    publications ('shadow')
+    properties = ['git_sha': sha, 'version': version]
+}
+*/
+
+build.dependsOn(shadowJar);
+
+task apex(type: Copy) {
+    from(project.buildDir.toString() + "/libs") {
+        include "*${version}*"
+    }
+    into project.buildDir.toString() + "/libs"
+    rename { String fileName ->
+        "apex.jar"
+    }
+}

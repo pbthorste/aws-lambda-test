@@ -1,0 +1,8 @@
+function*.json
+build/
+.gradle/
+gradle/
+gradlew*
+*.gradle
+src/
+build/

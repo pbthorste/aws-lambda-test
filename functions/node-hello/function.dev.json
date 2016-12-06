@@ -1,0 +1,6 @@
+{
+  "memory": 128,
+  "timeout": 60,
+  "runtime": "nodejs4.3",
+  "handler": "index.handler"
+}

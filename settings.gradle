@@ -1,0 +1,3 @@
+rootProject.name = 'lambda-test'
+include 'functions/java-hello'
+include 'functions/java-prime'

@@ -1,0 +1,9 @@
+group 'com.lambda.test'
+// empty parent
+/**
+ * Run this instead of 'dependencies' task to show dependencies
+ * for sub projects
+ */
+subprojects {
+    task allDeps(type: DependencyReportTask) {}
+}

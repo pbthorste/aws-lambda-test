@@ -1,0 +1,9 @@
+{
+  "memory": 128,
+  "timeout": 30,
+  "runtime": "java",
+  "handler": "com.lambda.test.Handler",
+  "hooks": {
+    "build": "gradle clean build apex"
+  }
+}

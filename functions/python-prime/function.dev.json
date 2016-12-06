@@ -1,0 +1,6 @@
+{
+  "memory": 128,
+  "timeout": 300,
+  "runtime": "python2.7",
+  "handler": "python_prime.handler"
+}
