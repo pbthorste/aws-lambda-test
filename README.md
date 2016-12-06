@@ -1,6 +1,12 @@
 # aws-lambda-test
 Some tests on AWS lambda using Apex 
 
+This project has AWS Lambda functions written in:
+
+* Python
+* Node.js
+* Java
+
 # AWS Setup
 
 Create a role in AWS with the policy:

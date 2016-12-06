@@ -10,6 +10,10 @@ import java.util.Map;
  */
 public class Handler implements RequestHandler<Map<String, Object>, String> {
 
+    public Handler() {
+        System.out.println("Loading Java Function");
+    }
+
     @Override
     public String handleRequest(Map<String, Object> input, Context context) {
         return "Hello Java!";
